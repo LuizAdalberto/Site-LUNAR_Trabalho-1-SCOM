@@ -5,155 +5,416 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUNAR - UNESP Sorocaba</title>
     <meta name="description" content="Liga Universitária de Navegação Autônoma e Robótica da UNESP Sorocaba.">
-    <!-- Fontes recomendadas -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Teko:wght@500;600&display=swap" rel="stylesheet">
-    <!-- Estilo externo -->
+    
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Pré-carrega a imagem de fundo principal para otimizar a velocidade de carregamento inicial da página -->
+    <link rel="preload" as="image" href="Imagens/Fundo.webp">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <span class="logo-tag">UNESP Sorocaba</span>
-            <h1>LUNAR</h1>
-            <p style="color: var(--lunar-white); font-size: 1.2rem;">Liga Universitária de Navegação Autônoma e Robótica</p>
+    <!-- Navegação Superior: Barra fixa contendo o logotipo, links do menu e o botão de login -->
+    <nav class="top-navbar" aria-label="Navegação principal">
+        <div class="nav-container">
+            <!-- Botão "Hambúrguer": Usado exclusivamente em dispositivos móveis para abrir e fechar o menu oculto -->
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menu">
+                <svg viewBox="0 0 24 24" width="30" height="30" stroke="var(--lunar-yellow)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+            </button>
+
+            <!-- Lista de links para as seções da página. A classe 'ativo' marca a seção em que o usuário está navegando -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#sobre" class="ativo" aria-current="page">Início</a></li>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#pesquisa">Pesquisa</a></li>
+                <li><a href="#competicao">Competições</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#apoio">Apoio</a></li>
+            </ul>
             
-            <nav aria-label="Navegação principal">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#historia">História</a></li>
-                    <li><a href="#pesquisa">Pesquisa</a></li>
-                    <li><a href="#competicao">Competição</a></li>
-                    <li><a href="#apoio">Apoio</a></li>
-                </ul>
-            </nav>
+            <!-- Botão de ícone (usuário) na navegação, responsável por acionar o modal de Login/Cadastro -->
+            <div class="user-action">
+                <a href="#login" class="login-btn" aria-label="Fazer login ou cadastro">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span class="sr-only">Acessar Conta</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Principal (Hero): Primeira área visual do site, apresentando a logo principal e o nome por extenso da liga -->
+    <header class="hero">
+        <div class="hero-brand">
+            <img src="Imagens/logo_1-removebg-preview.png" 
+                 alt="Logotipo oficial da Liga LUNAR" 
+                 width="220" 
+                 height="220" 
+                 class="hero-logo"
+                 loading="lazy">
+            
+            <div class="hero-text">
+                <h1>LUNAR</h1>
+                <p class="hero-subtitle">Liga Universitária de Navegação Autônoma e Robótica</p>
+            </div>
         </div>
     </header>
 
     <main class="container">
         
-        <!-- SEÇÃO 1: INÍCIO -->
-        <section id="inicio">
-            <h2>Bem-vindo à LUNAR</h2>
-            <div class="panel">
-                <article>
-                    <h3>Nossa Missão</h3>
-                    <p>A <strong>Liga Universitária de Navegação Autônoma e Robótica (LUNAR)</strong> é uma instituição sem fins lucrativos que promove o desenvolvimento da robótica no campus da UNESP Sorocaba. Nosso objetivo é oferecer aos estudantes a chance de explorar e aprofundar-se em diversas áreas da robótica, incentivando inovação e conhecimento técnico.</p>
+        <!-- ===================================================================
+             SEÇÃO "QUEM SOMOS E O QUE FAZEMOS": Apresenta a missão da liga e divide as principais atividades em um layout de duas colunas
+             =================================================================== -->
+        <section id="sobre" class="sobre-container">
+            <!-- Coluna Esquerda: Texto introdutório e imagem de destaque de um robô -->
+            <div class="sobre-coluna">
+                <div class="sobre-texto">
+                    <h2 class="titulo-destaque">QUE SOMOS?</h2>
+                    <p>Bem-vindos à LUNAR, a liga universitária da Instituto de Ciência e Tecnologia UNESP - Câmpus de Sorocaba focada em robótica avançada e navegação autônoma.</p>
+                    <p>Nosso propósito é impulsionar a tecnologia unindo a prática da engenharia ao rigor científico. Somos movidos pelo desafio de desenvolver sistemas inteligentes e autônomos, transformando o conhecimento da sala de aula em inovação tecnológica real.</p>
+                    <p>Explore nosso site para conhecer nossos projetos, conquistas e pesquisas que estão moldando o futuro da automação!</p>
+                </div>
+                <!-- Imagem representativa para a área "Quem Somos" -->
+                <img src="Imagens/Robo2.jpg" alt="Robô autônomo com cone" class="sobre-img">
+            </div>
+
+            <!-- Coluna Direita: Foto da equipe em ação e explicações sobre competições e áreas de pesquisa -->
+            <div class="sobre-coluna">
+                <!-- Imagem ilustrando as atividades práticas da equipe -->
+                <img src="Imagens/Robo.jpg" alt="Equipe apresentando projeto em painel" class="sobre-img">
+                
+                <div class="sobre-texto mt-2">
+                    <h2 class="titulo-destaque">O QUE FAZEMOS?</h2>
                     
-                    <figure style="margin-top: 2rem; text-align: center; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 8px;">
-                        <div style="width: 150px; height: 150px; background-color: var(--lunar-yellow); border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: var(--lunar-blue); font-weight: bold; font-family: var(--font-display); font-size: 2rem;">LUNAR</div>
-                        <figcaption style="margin-top: 1rem; font-size: 0.9rem;">
-                            <strong>A Lua e o Androide:</strong> O símbolo da LUNAR representa as pessoas que fazem a robótica acontecer. A união do androide e da lua simboliza grandes conquistas futuras e passadas, como a exploração lunar.
-                        </figcaption>
-                    </figure>
-                </article>
+                    <h3 class="subtitulo-amarelo">Competição</h3>
+                    <p>Testamos nossos limites no mundo real. Desenhamos, programamos e <strong>construímos protótipos robóticos de alto desempenho</strong> para disputar as principais competições acadêmicas do país e do mundo. Esses desafios práticos nos obrigam a buscar a excelência em mecânica, eletrônica e algoritmos, além de fortalecer o trabalho em equipe sob pressão.</p>
+
+                    <h3 class="subtitulo-amarelo mt-2">Pesquisa</h3>
+                    <p><strong>Pesquisa Aplicada:</strong> Coletamos dados rigorosos dos nossos protótipos de competição para publicar artigos científicos, otimizar desempenhos futuros e validar novas tecnologias de navegação.</p>
+                    <p><strong>Projetos Focados em Pesquisa:</strong> Desenvolvemos robôs experimentais livres das regras das competições. Esses protótipos exclusivos são criados puramente para a exploração científica, permitindo testes avançados em Inteligência Artificial, visão computacional e tomada de decisão autônoma.</p>
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 2: HISTÓRIA -->
+        <!-- ===================================================================
+             SEÇÃO "HISTÓRIA": Conta as origens do projeto, utilizando um bloco de texto destacado (painel) à esquerda e imagem histórica à direita
+             =================================================================== -->
         <section id="historia">
-            <h2>Nossa História</h2>
-            <div class="panel">
-                <article>
-                    <h3>Como tudo começou</h3>
-                    <p>Fundada em <strong>2024</strong>, a LUNAR nasceu como um desdobramento direto da <em>HumaMaquina</em>, uma equipe de competição que havia sido fundada em 2023.</p>
+            <h2 class="section-title-padrao">Nossa História</h2>
+            
+            <div class="historia-container">
+                <!-- Bloco contendo os textos descritivos do surgimento e evolução da equipe -->
+                <div class="panel historia-texto">
+                    <h3 class="subtitulo-amarelo">Como tudo começou</h3>
+                    <p>Fundada em <strong>2024</strong>, a LUNAR nasceu como um desdobramento direto da <strong>HumaMaquina</strong>, uma equipe de competição que havia sido fundada em 2023.</p>
                     <p>Nossa primeira participação oficial foi na renomada <strong>Competição Brasileira de Robótica (CBR)</strong> em Salvador, atuando na modalidade <em>Very Small Size Soccer (VSSS)</em>.</p>
                     <p>Após essa valiosa experiência competitiva, unimos forças e conseguimos oficializar a fundação da Liga no câmpus. Todo o nosso desenvolvimento tecnológico e acadêmico ocorre sob a orientação essencial do <strong>Professor Dr. Félix Maurício Escalante Ortega</strong>.</p>
-                </article>
+                </div>
+
+                <!-- Container exibindo uma fotografia chave da história do grupo -->
+                <div class="historia-imagem">
+                    <!-- Imagem alusiva à história (ex: fundadores, primeiro robô, etc.) -->
+                    <img src="Imagens/Robo.jpg" alt="Foto histórica da equipa LUNAR">
+                </div>
             </div>
         </section>
 
-        <!-- SEÇÃO 3: PESQUISA -->
+        <!-- ===================================================================
+             SEÇÃO "PESQUISA": Exibe artigos e eventos científicos por meio de um carrossel iterativo. Cada item direciona para o respectivo link externo.
+             =================================================================== -->
         <section id="pesquisa">
-            <h2>Pesquisa e Desenvolvimento</h2>
-            <div class="panel">
-                <article>
-                    <h3>Navegação Autônoma e Inovação</h3>
-                    <p>Na LUNAR, a prática encontra a teoria. Nossos membros estão constantemente envolvidos em projetos de:</p>
-                    <ul style="padding-left: 20px; color: var(--text-dim); margin-bottom: 1rem;">
-                        <li>Visão Computacional e Processamento de Imagens</li>
-                        <li>Sistemas de Controle e Automação</li>
-                        <li>Desenvolvimento de Hardware e PCB customizadas</li>
-                        <li>Inteligência Artificial aplicada a sistemas autônomos</li>
-                    </ul>
-                    <p>O ambiente universitário da UNESP nos permite integrar alunos de diferentes engenharias para a construção de robôs cada vez mais inteligentes e eficientes.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- SEÇÃO 4: COMPETIÇÃO -->
-        <section id="competicao">
-            <h2>Competições</h2>
-            <div class="panel">
-                <article>
-                    <h3>Very Small Size Soccer (VSSS)</h3>
-                    <p>Nossa categoria de entrada e especialidade atual. No VSSS, equipes de pequenos robôs em formato de cubo competem em uma partida de futebol totalmente autônoma. Uma câmera posicionada acima do campo envia os dados para um computador central, que processa as imagens, calcula as rotas via inteligência artificial e envia os comandos de rádio para os robôs.</p>
+            <h2 class="section-title-padrao">Pesquisa</h2>
+            
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselPesquisa">
                     
-                    <aside style="background-color: var(--bg-page); padding: 15px; border-left: 4px solid var(--lunar-yellow); border-radius: 4px; margin-top: 1.5rem;">
-                        <h4 style="margin-bottom: 5px;">CBR - Competição Brasileira de Robótica</h4>
-                        <p style="margin: 0; font-size: 0.9rem;">O principal palco da LUNAR. A CBR reúne os melhores projetos de robótica da América Latina, estimulando o avanço tecnológico estudantil.</p>
-                    </aside>
-                </article>
-            </div>
-        </section>
+                    <!-- Primeiro item do Carrossel de Pesquisas: Embedded Systems Competition -->
+                   <div class="carousel-item">
+                        <div class="panel carousel-card-hover">
+                            <!-- Link que abra a publicação ou página oficial numa nova aba -->
+                            <a href="https://sbesc.lisha.ufsc.br/sbesc2025/Embedded+Systems+Competition" target="_blank" style="display: block; height: 100%; text-decoration: none;">
+                                <img src="Imagens/Pesquisa “Exoesqueleto”.jpg" alt="Descrição da Imagem" class="carousel-bg-img">
+                                <div class="carousel-overlay">
+                                    <h3 class="subtitulo-amarelo">Embedded Systems Competition (ESC)</h3>
+                                    <p>Neste desafio focado em sistemas embarcados, colocamos à prova o “cérebro” dos nossos robôs. É a competição onde aplicamos nossos conhecimentos mais avançados de integração entre hardware e software para resolver problemas complexos de controle, processamento e autonomia.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 
-        <!-- SEÇÃO 5: APOIO (FORMULÁRIO DE CONTATO) -->
-        <section id="apoio">
-            <h2>Apoie a LUNAR</h2>
-            <div class="panel">
-                <p>Seja um patrocinador, parceiro tecnológico ou tire suas dúvidas sobre como ingressar na liga preenchendo o formulário abaixo.</p>
+                    <!-- Segundo item do Carrossel de Pesquisas: Conferência CROS -->
+                    <div class="carousel-item">
+                        <div class="panel carousel-card-hover">
+                            <!-- Link do artigo IEEE ou correspondente -->
+                            <a href="https://ieeexplore.ieee.org/document/11565785" target="_blank" style="display: block; height: 100%; text-decoration: none;">
+                                <img src="Imagens/CROS.jpeg" alt="Descrição da Imagem" class="carousel-bg-img">
+                                <div class="carousel-overlay">
+                                    <h3 class="subtitulo-amarelo">Conferência de Robótica (CROS)</h3>
+                                    <p>Como fazer um robô autônomo reconhecer sinalizações com alta precisão e sem consumir muitos recursos de hardware? Com a arquitetura TRM-TSS, combinamos processamento recursivo e classificação multitarefa para garantir navegação segura e robusta em robôs embarcados. Esse trabalho da nossa equipe foi publicado na conferência CROS 2026!</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
                 
-                <form action="#" method="POST" style="margin-top: 2rem;">
-                    <div>
-                        <label for="nome">Nome Completo / Empresa:</label>
-                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome ou empresa">
-                    </div>
+                <!-- Botões que acionam a função JavaScript para avançar/retroceder no carrossel de Pesquisa -->
+                <button class="carousel-control prev" onclick="moverCarrosselPesquisa(-1)">&#10094;</button>
+                <button class="carousel-control next" onclick="moverCarrosselPesquisa(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SEÇÃO "COMPETIÇÕES": Mesma estrutura de carrossel da seção anterior, mas voltada para mostrar os eventos e torneios em que participam
+             =================================================================== -->
+        <section id="competicao">
+            <h2 class="section-title-padrao">Competições</h2>
+            
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselCompeticao">
                     
-                    <div>
-                        <label for="email">E-mail Institucional ou Comercial:</label>
-                        <input type="email" id="email" name="email" required placeholder="email@exemplo.com.br">
+                    <!-- Primeiro item do Carrossel de Competições: IronCup -->
+                     <div class="carousel-item">
+                        <div class="panel carousel-card-hover">
+                            <!-- Link externo para a página do evento IronCup -->
+                            <a href="https://events.robocore.net/ironcup-2026#" target="_blank" style="display: block; height: 100%; text-decoration: none;">
+                                <img src="Imagens/IronCup.jpg" alt="Competição IronCup" class="carousel-bg-img">
+                                <div class="carousel-overlay">
+                                    <h3 class="subtitulo-amarelo">IronCup</h3>
+                                    <p>Uma das mais tradicionais competições de robótica do Brasil! Na Iron Cup, testamos a resistência mecânica e a eficiência eletrônica dos nossos projetos em desafios dinâmicos — como seguidores de linha e combate —, levando nossos protótipos ao limite em arenas de alta competitividade.</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="mensagem">Mensagem / Proposta:</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos inovar juntos?"></textarea>
+                    <!-- Segundo item do Carrossel de Competições: RoboCar Race -->
+                    <div class="carousel-item">
+                        <div class="panel carousel-card-hover">
+                            <!-- Link externo para a página da RoboCar Race -->
+                            <a href="https://www.robocarrace.com.br/" target="_blank" style="display: block; height: 100%; text-decoration: none;">
+                                <img src="Imagens/RoboCar Race.jpg" alt="Competição RoboCar Race" class="carousel-bg-img">
+                                <div class="carousel-overlay">
+                                    <h3 class="subtitulo-amarelo">RoboCar Race</h3>
+                                    <p>O Futuro da Condução Autônoma! A pista de testes definitiva para nossos algoritmos de Inteligência Artificial. A RoboCar Race é uma corrida de veículos autônomos em escala, onde o desafio é fazer nossos carros navegarem e tomarem decisões em tempo real usando apenas sensores e visão computacional, com zero intervenção humana.</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
+                
+                </div> 
 
-                    <div>
-                        <button type="submit" class="btn">Enviar Mensagem</button>
-                    </div>
+                <!-- Botões de navegação específicos para o carrossel de competições -->
+                <button class="carousel-control prev" onclick="moverCarrosselCompeticao(-1)">&#10094;</button>
+                <button class="carousel-control next" onclick="moverCarrosselCompeticao(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             SEÇÃO "CONTATO": Formulário de comunicação direta para mensagens, parcerias ou dúvidas gerais
+             =================================================================== -->
+        <section id="contato">
+            <h2 class="section-title-padrao">Entre em Contato</h2>
+            <div class="panel">
+                <form action="#" method="POST" class="support-form">
+                    <div><label for="nome">Nome Completo / Empresa:</label><input type="text" id="nome" required></div>
+                    <div><label for="email">E-mail Institucional:</label><input type="email" id="email" required></div>
+                    <div><label for="mensagem">Mensagem:</label><textarea id="mensagem" rows="5" required></textarea></div>
+                    <div><button type="submit" class="btn">Enviar Mensagem</button></div>
                 </form>
             </div>
         </section>
 
+        <!-- ===================================================================
+             SEÇÃO "APOIO": Espaço dedicado a atrair patrocinadores, exibindo texto persuasivo e informações para transferência (QR Code Pix)
+             =================================================================== -->
+        <section id="apoio">
+            <h2 class="section-title-padrao">Apoie a LUNAR</h2>
+            <div class="panel">
+                
+                <!-- Área de texto explicando os benefícios de ser um patrocinador -->
+                <div class="apoio-texto">
+                    <h3 class="subtitulo-amarelo">Torne-se um Parceiro do Nosso Projeto</h3>
+                    <p>O apoio de empresas e patrocinadores é fundamental para que a LUNAR continue a desenvolver robôs de alta performance para levar a nossa equipa para grandes competições nacionais e internacionais.</p>
+                    <p>Ao investir na LUNAR, a sua marca conecta-se diretamente à inovação tecnológica, à excelência académica da UNESP e à formação da próxima geração de engenheiros e cientistas.</p>
+                </div>
+
+                <!-- Container centralizado que apresenta o QR Code e a chave Pix para doações financeiras -->
+                <div class="apoio-imagem-container">
+                    <!-- Caminho para o QR code de pagamento -->
+                    <img src="Imagens/QRcode.jpg" alt="Equipa e Patrocinadores LUNAR" class="apoio-img">
+                    <p class="qr-instruction">Pix: lunar.tesouraria@gmail.com</p>
+                    <p class="subtitulo-amarelo">Obrigado pelo seu apoio!</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             MODAL DE AUTENTICAÇÃO: Uma janela flutuante que escurece o fundo e exibe abas alternáveis entre fazer Login ou realizar um Cadastro
+             =================================================================== -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-content panel">
+            <!-- Ícone para fechar a janela modal -->
+            <span class="close-modal">&times;</span>
+            
+            <!-- Botões que alternam qual formulário está visível (Entrar vs Cadastrar) -->
+            <div class="modal-tabs">
+                <button id="tab-login" class="tab-btn active">Entrar</button>
+                <button id="tab-register" class="tab-btn">Cadastrar</button>
+            </div>
+
+            <!-- Formulário de Login (visível por padrão) para utilizadores que já têm conta -->
+            <form id="form-login" class="auth-form active">
+                <h3 class="subtitulo-amarelo" style="text-align: center;">Bem-vindo de volta!</h3>
+                
+                <label for="login-email">E-mail</label>
+                <input type="email" id="login-email" placeholder="seu@email.com" required>
+                
+                <label for="login-password">Senha</label>
+                <input type="password" id="login-password" placeholder="********" required>
+                
+                <button type="submit" class="btn mt-2">Entrar</button>
+            </form>
+
+           <!-- Formulário de Cadastro completo para integração de novos membros (oculto até a aba ser clicada) -->
+            <form id="form-register" class="auth-form">
+                <h3 class="subtitulo-amarelo" style="text-align: center;">Junte-se à LUNAR</h3>
+                
+                <label for="reg-nome">Nome Completo</label>
+                <input type="text" id="reg-nome" placeholder="Digite seu nome" required>
+                
+                <label for="reg-telefone">Telefone</label>
+                <input type="tel" id="reg-telefone" placeholder="(15) 99999-9999" required>
+                
+                <label for="reg-nascimento">Data de Nascimento</label>
+                <input type="date" id="reg-nascimento" required>
+                
+                <label for="reg-email">E-mail</label>
+                <input type="email" id="reg-email" placeholder="seu@email.com" required>
+                
+                <!-- Seleção do curso universitário -->
+                <label for="reg-curso">Curso</label>
+                <select id="reg-curso" required>
+                    <option value="" disabled selected>Selecione o seu curso...</option>
+                    <option value="automacao">Engenharia de Controle e Automação</option>
+                    <option value="ambiental">Engenharia Ambiental</option>
+                </select>
+                
+                <!-- Lista suspensa padronizada selecionando o número da turma (de 1 a 24) -->
+                <label for="reg-turma">Turma</label>
+                <select id="reg-turma" required>
+                    <option value="" disabled selected>Selecione a sua turma...</option>
+                    <!-- Opções geradas repetitivamente para cada turma possível -->
+                    <option value="1">Turma 1</option>
+                    <!-- ... restante das turmas até a 24 ... -->
+                    <option value="24">Turma 24</option>
+                </select>
+                
+                <!-- Seleção do departamento interno da equipe no qual o membro quer participar -->
+                <label for="reg-setor">Setor</label>
+                <select id="reg-setor" required>
+                    <option value="" disabled selected>Selecione o setor de interesse...</option>
+                    <option value="rh">Ensino e RH</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="pesquisa">Pesquisa e Extensão</option>
+                    <option value="tesouraria">Tesouraria</option>
+                </select>
+
+                <!-- Campo de criação de Senha acompanhado de um indicador visual de complexidade (força) -->
+                <label for="reg-password">Criar Senha</label>
+                <input type="password" id="reg-password" placeholder="Digite sua senha" required>
+                
+                <!-- Medidor em tempo real manipulado por JavaScript no final do documento para fornecer feedback de segurança da senha -->
+                <div class="password-meter">
+                    <div class="strength-label">Força da senha: <span id="strength-text">-</span></div>
+                    <div class="strength-bar"><div id="strength-bar-fill"></div></div>
+                    
+                    <ul class="password-requirements">
+                        <li id="req-letters">✓ Contém letras</li>
+                        <li id="req-numbers">✓ Contém números</li>
+                        <li id="req-special">✓ Contém caracteres especiais (@, #, $, etc.)</li>
+                    </ul>
+                </div>
+                
+                <button type="submit" class="btn mt-2">Criar Conta</button>
+            </form>
+        </div>
+    </div>
+
     </main>
 
+  <!-- ===================================================================
+       RODAPÉ (FOOTER): Fim da página estruturado em colunas para links secundários, contactos, redes sociais e direitos de uso
+       =================================================================== -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3 style="color: var(--lunar-yellow);">LUNAR</h3>
-                    <p style="font-size: 0.9rem;">Liga Universitária de Navegação Autônoma e Robótica<br>UNESP Sorocaba - 2026</p>
+            <div class="footer-grid novo-footer">
+                
+                <!-- Primeira coluna: Apresenta o Logotipo alternativo e lista as informações de contacto (Morada, Telefone e E-mail) -->
+                <div class="footer-col-1">
+                    <!-- Logotipo utilizado especificamente no rodapé -->
+                    <img src="Imagens/logo_2-removebg-preview.png" alt="LUNAR Logo" class="footer-logo" loading="lazy">
+                    
+                    <ul class="footer-contacts">
+                        <!-- Cada item da lista é acompanhado por um ícone SVG para fins visuais e estilísticos -->
+                        <li>
+                            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                            <span>Av. Três de Março, 511 - Alto da Boa Vista, Sorocaba -<br>SP, 18087-180.</span>
+                        </li>
+                        <li>
+                            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
+                            <span>+55 16 98114-7283</span>
+                        </li>
+                        <li>
+                            <svg class="footer-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <span>lunar.icts@unesp.br</span>
+                        </li>
+                    </ul>
                 </div>
-                <div>
-                    <h3 style="color: var(--lunar-yellow);">Orientação</h3>
-                    <p style="font-size: 0.9rem;">Prof. Dr. Félix Maurício Escalante Ortega</p>
-                </div>
-                <div>
-                    <h3 style="color: var(--lunar-yellow);">Contato</h3>
-                    <p style="font-size: 0.9rem;">
-                        <a href="#">Instagram: @lunar.unesp</a><br>
-                        <a href="#">LinkedIn: LUNAR Robotics</a>
-                    </p>
+
+                <!-- Segunda (ou Terceira, conforme o grid) coluna: Direciona para as plataformas onde a liga possui perfis oficiais -->
+                <div class="footer-col-3">
+                    <h3 class="footer-title">REDES SOCIAIS</h3>
+                    <ul class="footer-social">
+                        <li>
+                            <!-- Link com redirecionamento para o perfil institucional no LinkedIn -->
+                            <a href="https://www.linkedin.com/company/lunar-icts/" target="_blank" aria-label="LinkedIn">
+                                <svg class="footer-icon" viewBox="0 0 24 24"><path d="..."/></svg>
+                                Linkedin
+                            </a>
+                        </li>
+                        <li>
+                            <!-- Link com redirecionamento para o canal de vídeos no YouTube -->
+                            <a href="https://www.youtube.com/@LUNAR-ICTS" target="_blank" aria-label="YouTube">
+                                <svg class="footer-icon" viewBox="0 0 24 24"><path d="..."/></svg>
+                                Youtube
+                            </a>
+                        </li>
+                        <li>
+                            <!-- Link com redirecionamento para o perfil do Instagram -->
+                            <a href="https://www.instagram.com/lunar.icts/" target="_blank" aria-label="Instagram">
+                                <svg class="footer-icon" viewBox="0 0 24 24"><path d="..."/></svg>
+                                Instagram
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <p style="font-size: 0.8rem; color: var(--border-color); margin-top: 2rem;">
-                Projeto desenvolvido para a disciplina SCOM. Interface avaliada em requisitos técnicos e acessibilidade.
-            </p>
+            
+            <!-- Secção inferior estrita aos Direitos Autorais do site -->
+            <div class="footer-copyright">
+                <p>Copyright &copy; 2026 lunar-icts.com</p>
+            </div>
         </div>
     </footer>
 
+   <script src="js/script.js"></script>
 </body>
 </html>
