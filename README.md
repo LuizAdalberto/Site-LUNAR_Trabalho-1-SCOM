@@ -3,11 +3,6 @@
 > **Trabalho Individual I - Sistemas de Comunicação (SCOM 2026)**  
 > Desenvolvido por [Luiz Adalberto]
 
-![HTML5]
-![CSS3]
-![JavaScript]
-![WCAG 2.2 AA]
-![Lighthouse]
 
 ---
 
