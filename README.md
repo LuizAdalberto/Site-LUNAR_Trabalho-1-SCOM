@@ -1,13 +1,13 @@
 # 🚀 LUNAR - Site Institucional & Portfólio de Projetos
 
 > **Trabalho Individual I - Sistemas de Comunicação (SCOM 2026)**  
-> Desenvolvido por [Luiz Adalberto](https://github.com/LuizAdalberto)
+> Desenvolvido por [Luiz Adalberto]
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![WCAG 2.2 AA](https://img.shields.io/badge/Acessibilidade-WCAG_2.2_AA-green?style=for-the-badge)
-![Lighthouse](https://img.shields.io/badge/Lighthouse-Audited-blue?style=for-the-badge)
+![HTML5]
+![CSS3]
+![JavaScript]
+![WCAG 2.2 AA]
+![Lighthouse]
 
 ---
 
